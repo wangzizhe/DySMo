@@ -12,7 +12,7 @@ In the case of a pendulum, the two modes correspond to two model structures. In 
 
 <img src="./examples/pendulum/FreeFlying.png" style="zoom: 25%;" />
 
-<img src="./examples/pendulum/result/modeplot.png" style="zoom: 80%;" />
+<img src="./examples/pendulum/result/FreeFlyingPlot.png" style="zoom: 80%;" />
 
 The examples have been updated and tested with the following results:
 * `ballSimple`: ✔
