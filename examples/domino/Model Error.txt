@@ -1,0 +1,16 @@
+Choosing tool 'OpenModelica' for mode 1.
+Compiling mode 1...
+Running simulation 1 - ModeID: 1 - Time: 0
+Simulation 1 completed in 0.23 seconds.
+Simulation 1 ended at 0.2508050763315901
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\DySMo\DySMo\src\DySMo.py", line 69, in <module>
+    func(model)
+  File "C:\Users\Administrator\Desktop\DySMo\DySMo\src\VSM.py", line 285, in simulate
+    self.__transitionActive(transition)
+  File "C:\Users\Administrator\Desktop\DySMo\DySMo\src\VSM.py", line 222, in __transitionActive
+    transition.init_function(self.__actMode, oldMode)
+  File "C:\Users\Administrator\Desktop\DySMo\samples\domino\config.py", line 5, in crash
+    active = int(old.get_parameter('active')) + 1
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
