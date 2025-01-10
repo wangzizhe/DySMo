@@ -33,6 +33,7 @@ class Transition:
 		"""
 		self.__id = id
 		
+	# def mapping(self, oldMode, newMode):
 	def mapping(self, oldMode, newMode):
 		"""
 		Handles the mapping of variables between two modes during a transition.
@@ -42,11 +43,11 @@ class Transition:
 		valuesToSet (dict): The dictionary of values to populate.
 		"""
 		valuesToSet = {}
-		mapping = self.mapping
+		# mapping = self.mapping
 		
 		for key in self.mapping:
 			if key == "*" and self.mapping[key] == "*":
-				self.__map_star(oldMode, newMode, valuesToSet)  # Handles wildcard mapping
+				# self.__map_star(oldMode, newMode, valuesToSet)  # Handles wildcard mapping
 				continue
 				
 			if not oldMode.has_endValue(self.mapping[key]):	
@@ -54,14 +55,14 @@ class Transition:
 				raise IllegalMappingException(oldMode, key, self, self.mapping[key])
 				
 			valuesToSet[key] = oldMode.get_endValue(self.mapping[key])
-			
+
 		return valuesToSet
 	
-	def __mapStar(self, oldMode, newMode, valuesToSet):
-		"""
-		Handles wildcard mapping from old mode to new mode.
-		This private method assumes detailed implementation elsewhere.
-		"""
-		# Implementation of wildcard mapping logic should be placed here.
-		# This placeholder method assumes it will map all compatible variables.
-		pass
+	# def __map_star(self, oldMode, newMode, valuesToSet):
+	# 	"""
+	# 	Handles wildcard mapping from old mode to new mode.
+	# 	This private method assumes detailed implementation elsewhere.
+	# 	"""
+	# 	# Implementation of wildcard mapping logic should be placed here.
+	# 	# This placeholder method assumes it will map all compatible variables.
+	# 	pass
