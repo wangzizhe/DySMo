@@ -4,7 +4,6 @@ import Modelica.Units.SI.*;
 constant Real pi = Modelica.Constants.pi;
   model DominoStone
     import Modelica.Units.SI.*;
-    //parameter Real D=0.046/2;
     parameter Real X = 0.008;
     parameter Real Y = 0.024;
     parameter Real Z = 0.046;
@@ -41,26 +40,27 @@ constant Real pi = Modelica.Constants.pi;
 
   model Stones
     parameter Real D = 0.011; // Distance between domino stones
-    parameter Integer active = 1, fallen = 0, total = 5;  // Count of active, fallen, and total stones
+    parameter Integer active = 1;  // Count of active stones
+    parameter Integer fallen = 0; // Count of fallen domino stones
+    parameter Integer total = 5; // Total number of domino stones
     parameter Integer remaining = total - fallen - active;
-    dominoStone stones[active]; // Array of active domino stones
+    DominoStone Stones[active]; // Array of active domino stones
     Integer transitionId; // Transitions ID
     
-  equation
+  algorithm
     // When a domino stone is pushed over
-    when stones[active].x > D and remaining > 0 then
-      transitionId = 1;
+    when Stones[active].x > D and remaining > 0 then
+      transitionId := 1;
       terminate("Domino stone collision");
     // When the domino stone has fallen
-    elsewhen stones[1].phi_deg > 90 and active > 1 then
-      transitionId = 2;
+    elsewhen Stones[1].phi_deg > 90 and active > 1 then
+      transitionId := 2;
       terminate("Domino stone on the ground");
     // End of the simulation
-    elsewhen stones[1].phi_deg > 90 and active == 1 then
-      transitionId = 3;
+    elsewhen Stones[1].phi_deg > 90 and active == 1 then
+      transitionId := 3;
       terminate("End of simulation");
     end when;
-
   end Stones;
 
   annotation (uses(Modelica(version="4.0.0")));

@@ -4,16 +4,16 @@ model Ball
 
 model FlyingBall
   parameter Real r = 1;
-   parameter Real g = 9.81;
-   Real h(start=20);
-   Real v;
-   Integer transitionId(start=0);
+  parameter Real g = 9.81;
+  Real h(start=20);
+  Real v;
+  Integer transitionId(start=0);
 equation
   der(h) = v;
   der(v) = -g;
   when h < 0 then
     transitionId = 1;
-    terminate("Boden");
+    terminate("ground contact");
   end when;
 end FlyingBall;
 
