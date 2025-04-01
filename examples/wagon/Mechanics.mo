@@ -2,22 +2,22 @@ within ;
 package Mechanics
 
   model Vehicle
-
-    Real m = 1;
-    Real c = 1.9;
-    Real s;
-    Real ds;
-    Real k = 0.05;
-    constant Real g = 9.81;
+    parameter Real m = 1;
+    parameter Real c = 1.9;
+    parameter Real k = 0.05;
+    parameter Real g = 9.81;
     parameter Real alpha = 20 * 3.14/180;
+    parameter Real wagenheight = 2;
+    parameter Real wagenwidth = 4;
+    parameter Real hBall = sqrt(wagenheight^2+wagenwidth^2);
+    
     Real x;
     Real y(start=20, fixed=true);
     Real R;
     Real vx;
     Real vy;
-    parameter Real wagenheight = 2;
-    parameter Real wagenwidth = 4;
-    parameter Real hBall = sqrt(wagenheight^2+wagenwidth^2);
+    Real s;
+    Real ds;
 
   equation
     der(x) = vx;
@@ -34,15 +34,16 @@ package Mechanics
 
     import Modelica.Units.SI.*;
 
-    parameter Mass m = 1;
-    parameter Radius r = 1;
-    parameter TranslationalSpringConstant c = 1e3;
-    parameter TranslationalDampingConstant d = 1e1;
-    parameter Acceleration g = 9.81;
-    Length h;
-    Velocity v;
-    Length x;
-    Velocity vx;
+    parameter Real m = 1;
+    parameter Real r = 1;
+    parameter Real c = 1e3; // Translational spring constant
+    parameter Real d = 1e1; // Translational damping constant
+    parameter Real g = 9.81;
+      
+    Real h; // Length
+    Real v;
+    Real x;
+    Real vx;
 
     Modelica.Mechanics.Translational.Components.Fixed fixed
       annotation (Placement(transformation(extent={{-10,-86},{10,-66}})));

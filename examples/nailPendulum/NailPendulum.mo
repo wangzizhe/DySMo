@@ -7,29 +7,29 @@ package NailPendulum
   import Modelica.Units.SI.*;
 
   model Nail
-    parameter Position x;
-    parameter Position y;
-    parameter Angle alpha = asin(x /(sqrt(x^2 + y^2)));
-  end nail;
+    parameter Real x; // Position
+    parameter Real y; // Position
+    parameter Real alpha = asin(x /(sqrt(x^2 + y^2))); // Angle
+  end Nail;
 
   model Pendulum_phi
     // pundulum with equtaions that are dependent on the angle phi
-    parameter Position auf_x(fixed=false);
-    parameter Position auf_y(fixed=false);
-    Angle phi(start=90*3.14/180);
-    AngularVelocity dphi(start=-0.5, fixed=true);
+    parameter Real auf_x(fixed=false); // Position
+    parameter Real auf_y(fixed=false); // Position
+    Real phi(start=90*3.14/180);
+    Real dphi(start=-0.5, fixed=true);
     parameter Real g = 9.81;
-    parameter Mass m = 1;
-    Length x;
-    Length y;
-    Velocity dx;
-    Velocity dy;
+    parameter Real m = 1;
+    Real x;
+    Real y;
+    Real dx;
+    Real dy;
     parameter Real D = 0.005;
-    Length L;
-    Force F;
+    Real L;
+    Real F;
 
   equation
-    der(L)=0;
+    der(L) = 0;
     x = sin(phi) * L + auf_x;
     y = -cos(phi) * L + auf_y;
     dy = der(y);
@@ -47,7 +47,7 @@ package NailPendulum
     Real vx;
     Real vy;
     parameter Real m = 1;
-    constant Real g = 9.81;
+    parameter Real g = 9.81;
     parameter Real c0 = 0;
     parameter Real L = 2;
 
@@ -56,17 +56,16 @@ package NailPendulum
     vy = der(y);
     m * der(vx) = 0;
     m * der(vy) = -g*m;
-
   end Ball;
 
   model Ball_struc
     extends Ball;
     Integer transitionId(start=0);
-    nail n(x=-0.7, y=-0.7);
+    Nail n(x=-0.7, y=-0.7);
     Boolean long;
     parameter StateSelect stateSelect=StateSelect.never;
-    Angle phi(stateSelect=stateSelect);
-    AngularVelocity dphi;
+    Real phi(stateSelect=stateSelect);
+    Real dphi;
     Real r;
     Real phi1(start=0);
 
@@ -103,10 +102,10 @@ package NailPendulum
   model Pendulum_struc
     extends Pendulum_phi;
 
-    parameter Length Lmax = 2;
-    parameter Length Lmin = Lmax - (sqrt(n.x^2+n.y^2));
+    parameter Real Lmax = 2;
+    parameter Real Lmin = Lmax - (sqrt(n.x^2+n.y^2));
     Integer transitionId(start=0);
-    nail n(x=-0.7, y=-0.7);
+    Nail n(x=-0.7, y=-0.7);
     Boolean long(start=true);
 
   initial equation

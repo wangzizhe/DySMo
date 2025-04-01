@@ -7,7 +7,7 @@ def crash(act, old):
 				
 	D_val = old.get_parameter('D')
 	Z_val = old.get_parameter('Stones[1].Z')
-
+ 
 	phipush = math.asin(D_val/Z_val)
 	KO = (1 + math.cos(2 * phipush))/2
 	KR = 1 - math.cos(phipush)
@@ -16,7 +16,7 @@ def crash(act, old):
 	p = []
 	for i in range(1, active):
 		omega = old.get_endValue(f'Stones[{i}].omega')
-		phi = old.get_endValuef(f'Stones[{i}].phi')
+		phi = old.get_endValue(f'Stones[{i}].phi')
 		p.append(phi)
 		if i == active - 1:
 			o.append(omega * KR)
@@ -27,7 +27,7 @@ def crash(act, old):
 	act.compile()
 	act.read_init()
 		
-	for i in range(1,active):
+	for i in range(1, active):
 		act.set_initialValue(f'Stones[{i}].omega', o[i - 1])
 		act.set_initialValue(f'Stones[{i}].phi', p[i - 1])
 	act.set_initialValue(f'Stones[{active}].omega', o[-1] * KO / KR)
@@ -35,12 +35,12 @@ def crash(act, old):
 	
 # Domino stone falls
 def fall(act, old):
-	active =  int(old.get_endValue('active')) - 1
-	fallen =  int(old.get_endValue('fallen') + 1)
+	active = int(old.get_endValue('active')) - 1
+	fallen = int(old.get_endValue('fallen')) + 1
 
 	o = []
 	p = []
-	for i in range(2,active+2):
+	for i in range(2, active+2):
 		omega = old.get_endValue('Stones['+str(i)+'].omega')
 		phi = old.get_endValue('Stones['+str(i)+'].phi')
 		o.append(omega)
@@ -50,7 +50,7 @@ def fall(act, old):
 	act.compile()
 	act.read_init()
 	
-	for i in range(1,active+1):
+	for i in range(1, active+1):
 		act.set_initialValue('Stones['+str(i)+'].omega', o[i-1])
 		act.set_initialValue('Stones['+str(i)+'].phi', p[i-1])
 	

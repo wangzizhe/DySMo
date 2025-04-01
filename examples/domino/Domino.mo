@@ -7,12 +7,12 @@ constant Real pi = Modelica.Constants.pi;
     parameter Real X = 0.008;
     parameter Real Y = 0.024;
     parameter Real Z = 0.046;
-    Angle phi;
+    Real phi; // Angle
     Real phi_deg;
     parameter Real m = 0.01;
-    constant Real g = 9.81;
+    parameter Real g = 9.81;
     parameter Real theta = m * (X^2 + Z^2)/3;
-    AngularVelocity omega(start=0.0316, fixed=true);
+    parameter Real omega(start=0.0316, fixed=true); //Angular velocity
     parameter Real R = 0.5 * sqrt(X^2 + Z^2);
     Real T;
     Real x;

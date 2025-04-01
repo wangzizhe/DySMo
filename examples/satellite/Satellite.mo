@@ -1,7 +1,7 @@
 within ;
 package Satellite
   import Modelica.Units.SI.*;
-  constant Real g0 = 9.81;
+  parameter Real g0 = 9.81;
   final constant Real pi = 2 * Modelica.Math.asin(1.0);
 
   model Planet
@@ -76,12 +76,12 @@ package Satellite
     parameter Real M = 5.974 * 10^(24);
     parameter Real radius_planet = 6371000;
     parameter Real m0 = 100000;
-    Mass m(start=m0);
-    Mass m_boost(start=87000);
+    Real m(start=m0);
+    Real m_boost(start=87000);
 
-    Velocity v(displayUnit="km/s");
-    Force F_schub;
-    Length h;
+    Real v(displayUnit="km/s");
+    Real F_schub;
+    Real h;
 
     Real m_srb;
 
@@ -90,7 +90,7 @@ package Satellite
     Real ce_srb;
 
     Real psi(start=90 * pi/180);
-    Pressure p;
+    Real p;
     parameter Real p_0 = 101300;
     Real F_g;
     Real F_lw;
@@ -98,10 +98,10 @@ package Satellite
 
     Real rho;
 
-    Length x(start=-9.116406537737496E+005);
+    Real x(start=-9.116406537737496E+005);
     Real Rk;
     Real Is = 300;
-    Length height;
+    Real height;
     Real vx;
     Real vy;
 

@@ -5,11 +5,11 @@ package BouncingBall "Bouncing ball with structural changes"
 
     import Modelica.Units.SI.*;
 
-    parameter Mass m = 1;
-    parameter Radius r = 1;
-    parameter TranslationalSpringConstant c = 1e3;
-    parameter TranslationalDampingConstant d = 0.6e1;
-    parameter Acceleration g = 9.81;
+    parameter Real m = 1;
+    parameter Real r = 1;
+    parameter Real c = 1e3; // Translational spring constant
+    parameter Real d = 0.6e1; // Translational Damping Constant 
+    parameter Real g = 9.81;
 
     Modelica.Mechanics.Translational.Components.Fixed fixed
       annotation (Placement(transformation(extent={{-10,-86},{10,-66}})));

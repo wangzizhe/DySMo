@@ -22,7 +22,7 @@ mode2.synonym = {'x' : 'x', 'y' : 'y'}
 # Transition from mode 1 to mode 2
 trans1_2 = Transition()
 trans1_2.post = mode2
-trans1_2.mapping = {'x' : 'x', 'y' : 'y',  'vx': 'der(x)' ,  'vy':'der(y)'}
+trans1_2.mapping = {'x' : 'x', 'y' : 'y', 'vx': 'der(x)' , 'vy':'der(y)'}
 
 # Transition from mode 2 to mode 1
 def speed(actMode, oldMode):

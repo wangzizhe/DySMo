@@ -20,13 +20,13 @@ package Pendulum
     Force F;
   
   equation
-    x = sin(phi)*L;
-    y = -cos(phi)*L;
+    x = sin(phi) * L;
+    y = -cos(phi) * L;
     dy = der(y);
     dx = der(x);
     dphi = der(phi);
-    der(dphi) = -g/L * sin(phi) - D* g/L *der(phi);
-    F =m * g * cos(phi) + m * L * dphi^2;
+    der(dphi) = -g/L * sin(phi) - D * g/L * der(phi);
+    F = m * g * cos(phi) + m * L * dphi^2;
 
   end Pendulum_phi;
 
