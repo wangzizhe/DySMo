@@ -6,15 +6,14 @@ model PendulumFreeflyingSUM_pendulum
   
   parameter Real L = 2; // Pendulum length
   
-  // Pendulum mode
   Real phi(start=0); // Pendulum angle
   Real dphi(start=-2); // Angular velocity
   Real x; // Position
   Real y; // Position
   Real dx; // Velocity
   Real dy; // Velocity
+  Real F;
   
-  // Freeflying mode
 
 equation
   x = L * sin(phi);
@@ -23,5 +22,6 @@ equation
   dy = der(y);
   dphi = der(phi);
   der(dphi) = -g/L * sin(phi);
+  F = m * g * cos(phi) + m * L * dphi^2;
 
 end PendulumFreeflyingSUM_pendulum;
