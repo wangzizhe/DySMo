@@ -1,6 +1,6 @@
 # Model
 model.default_solver = Solver("dassl")
-model.default_solver.tolerance = 3e-05
+model.default_solver.tolerance = 1e-4
 model.translate = True
 model.init = {}
 model.startTime = 0
@@ -9,20 +9,20 @@ model.observe = ['y']
 
 # First mode
 mode1 = Mode()
-mode1.modeRef = "mechanics.vehicle_struc"
-mode1.files = ["mechanics.mo"]
+mode1.modeRef = "Mechanics.Vehicle_struc"
+mode1.files = ["Mechanics.mo"]
 mode1.synonym = {'y' : 'y'}
 
 # Second Mode
 mode2 = Mode()
-mode2.modeRef = "mechanics.ball_struc"
-mode2.files = ["mechanics.mo"]
+mode2.modeRef = "Mechanics.Ball_struc"
+mode2.files = ["Mechanics.mo"]
 mode2.synonym = {'y' : 'h'}
 
 # Third Mode
 mode3 = Mode()
-mode3.modeRef = "mechanics.contact_struc"
-mode3.files = ["mechanics.mo"]
+mode3.modeRef = "Mechanics.Contact_struc"
+mode3.files = ["Mechanics.mo"]
 mode3.synonym = {'y' : 'h'}
 
 # Transition from first mode to second mode

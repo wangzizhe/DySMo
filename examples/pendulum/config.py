@@ -1,6 +1,6 @@
 # Model
 model.default_solver = Solver("dassl")
-model.default_solver.tolerance = 1e-6
+model.default_solver.tolerance = 1e-4
 model.translate = True
 model.init = {}
 model.startTime = 0
