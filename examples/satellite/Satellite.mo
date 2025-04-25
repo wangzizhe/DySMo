@@ -1,7 +1,7 @@
 within ;
 package Satellite
   import Modelica.Units.SI.*;
-  parameter Real g0 = 9.81;
+  constant Real g0 = 9.81;
   final constant Real pi = 2 * Modelica.Math.asin(1.0);
 
   model Planet
