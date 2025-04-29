@@ -23,3 +23,7 @@ The examples have been updated and tested with the following results:
 * `pipe`: ❌ memory error
 * `satellite`: ❌ memory error
 * `wagon`: ✔
+
+New examples added:
+* `Clutch`
+  * Example from: [Benveniste, A., Caillaud, B., Malandain, M., & Thibault, J. (2022). Algorithms for the Structural Analysis of Multimode Modelica Models. *Electronics*, *11*(17), 2755.]([Algorithms for the Structural Analysis of Multimode Modelica Models](https://www.mdpi.com/2079-9292/11/17/2755))
